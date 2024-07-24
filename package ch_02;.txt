@@ -1,0 +1,535 @@
+package ch_02;
+
+import java.util.Scanner;
+
+/**
+ * *2.21(Financial application: calculate future investment value) Write a
+ * program that reads in investment amount, annual interest rate, and number of
+ * years, and displays the future investment value using the following formula:
+ * <p>
+ * futureInvestmentValue = investmentAmount * (1 +
+ * monthlyInterestRate)^numberOfYears*12
+ * <p>
+ * For example, if you enter amount 1000, annual interest rate 3.25%, and number
+ * of years 1, the future investment value is 1032.98. Here is a sample run:
+ * <p>
+ * Enter investment amount: 1000.56 Enter annual interest rate in percentage:
+ * 4.25 Enter number of years: 1 Accumulated value is $1043.92
+ */
+public class Exercise02_21 {
+
+    public static void main(String[] args) {
+
+        Scanner in = new Scanner(System.in);
+
+        System.out.print("Enter investment amount: ");
+        double investmentAmount = in.nextDouble();
+
+        System.out.print("Enter annual interest rate in percentage: ");
+        double monthInterestRate = in.nextDouble();
+
+        System.out.print("Enter number of years: ");
+        double years = in.nextInt();
+
+//		futureInvestmentValue = investmentAmount * (1 + monthlyInterestRate)^(numberOfYears*12)
+
+        years *= 12;
+        monthInterestRate /= 1200; //Convert from yearly to monthly and from percent to decimal
+
+        System.out.printf("Accumulated Value is $%.2f",
+                investmentAmount * Math.pow(monthInterestRate + 1, years));
+        in.close();
+
+    }
+
+}
+
+
+
+public class Exercise02_17 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Enter the temperature in Fahrenheit between -58°F and 41°F: ");
+        double temp = input.nextDouble();
+
+        System.out.println("Enter the wind speed (>=2) in miles per hour: ");
+        int windSpeed = input.nextInt();
+
+        double vToPow16 = Math.pow(windSpeed, 0.16);
+
+        double twc = 35.74 + 0.6215 * temp - 35.75 * vToPow16 + 0.4275 * temp * vToPow16;
+        System.out.println("The wind chill index is " + twc);
+
+    }
+
+
+}
+
+
+
+public class Exercise02_23 {
+    public static void main(String[] args) {
+
+        double distance;
+        double milesPerGallon;
+        double pricePerGallon;
+
+        System.out.println("Enter the driving distance in miles:");
+
+        Scanner input = new Scanner(System.in);
+        distance = input.nextDouble();
+
+        System.out.println("Enter the miles per gallon:");
+
+        milesPerGallon = input.nextDouble();
+
+        System.out.println("Enter the price of gas per gallon:");
+
+        pricePerGallon = input.nextDouble();
+
+        double tripCost = (distance / milesPerGallon) * pricePerGallon;
+
+        System.out.print("\nThe cost of driving for this trip is: $");
+        System.out.printf("%.2f", tripCost);
+
+        input.close();
+    }
+
+}
+
+
+
+
+
+
+
+2.17 (Science: wind-chill temperature) How cold is it outside? The temperature alone
+ * is not enough to provide the answer. Other factors including wind speed, relative
+ * humidity, and sunshine play important roles in determining coldness outside.
+ * In 2001, the National Weather Service (NWS) implemented the new wind-chill
+ * temperature to measure the coldness using temperature and wind speed. The
+ * formula is
+ * twc = 35.74 + 0.6215ta - 35.75v0.16 + 0.4275tav0.16
+ * where ta is the outside temperature measured in degrees Fahrenheit and v is the
+ * speed measured in miles per hour. twc is the wind-chill temperature. The formula
+ * cannot be used for wind speeds below 2 mph or temperatures below -58 ºF or
+ * above 41ºF.
+ * <p>
+ * Write a program that prompts the user to enter a temperature between -58 ºF and
+ * 41ºF and a wind speed greater than or equal to 2 and displays the wind-chill
+ *Thank you for your business! We look forward to working with you again.
+
+
+
+
+
+public class Exercise02_14 {
+    public static void main(String[] args) {
+
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Please enter your weight in pounds: ");
+        double weightInpounds = input.nextDouble();
+
+
+        System.out.print("Please enter you height in inches: ");
+        double heightInInches = input.nextDouble();
+
+        double weightInkilograms = weightInpounds * 0.45359237;
+
+        double heightInmeters = heightInInches * 0.0254;
+
+        double metersFactor = Math.pow(heightInmeters, 2);
+
+        System.out.println("Your BMI is: " + weightInkilograms / metersFactor);
+        input.close();
+    }
+
+}
+
+
+
+
+import java.util.Scanner;
+public class distFormula {
+    public static void main(String args[]) {
+        Scanner myObj = new Scanner(System.in);
+
+        System.out.print("Enter the x1, x2, y1 and y2 respectively: "); // 1p = 0.4535kg
+        double x1 = myObj.nextDouble();
+        double x2 = myObj.nextDouble();
+        double y1 = myObj.nextDouble();
+        double y2 = myObj.nextDouble();
+        
+        double distance = Math.sqrt(Math.pow(x1, 2) + Math.pow(y1, 2) + Math.pow(x2, 2) + Math.pow(y2, 2));
+        System.out.println("Area: " + distance);
+
+        myObj.close();
+    }
+}
+
+
+// x1 and y1 and x2 and y2
+// Display distance between them
+
+
+
+
+// WAP geomerty program that prompts user to enter egdes and verices of hexagon and display the area of the hexagon
+import java.util.Scanner;
+
+public class Basics {
+public static double calculateHexagonArea(double edgeLength) {
+    return (Math.sqrt(3) / 2) * Math.pow(edgeLength, 2);
+}
+
+
+public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+    double edgeLength = scanner.nextDouble();
+    System.out.println(calculateHexagonArea(edgeLength));
+}
+}
+
+
+
+
+
+public class Exercise02_07 {
+    public static void main(String[] args) {
+
+        final int minInhour = 60;
+        final int hoursInday = 24;
+        final int daysInyear = 365;
+
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Enter the number of minutes: ");
+
+        int numberOfmin = input.nextInt();
+
+        int numberOfyears = numberOfmin / minInhour / hoursInday / daysInyear;
+
+        int numberOfdays = numberOfmin / minInhour / hoursInday % daysInyear;
+
+        System.out.println(numberOfmin + " minutes is approximately " + numberOfyears + " years and " + numberOfdays + " days");
+
+    }
+
+}
+
+
+
+// write a program that prompt the user to enter weight in pounds and height in inches and display the BMI. BMI = weight in pounds divided by height in inches squared.
+// 1p=0.4535kg
+// 1inch=0.0254m
+import java.util.Scanner;
+public class Basics {
+    public static String calculateBMI(double weight, double height) {
+        double BMI = (weight * 0.4535) / ((height * 0.0254) * (height * 0.0254));
+        return String.format("%.2f", BMI);  
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int weight = scanner.nextInt();
+        int height = scanner.nextInt();
+        System.out.println(calculateBMI(weight, height));
+    }
+}
+
+write an program that prompts the user to starting velocity vo in m/sec and ending velocity v1 m/s and the time spent t in seconds display the avg acceleration
+
+
+import java.util.*;
+public class time {
+    public static void main(String[]args){
+        Scanner sc=new Scanner(System.in);
+        System.out.println("enter number");
+        int n=sc.nextInt();
+        int r=0,sum=0;
+        while(n!=0)
+        {
+            r=n%10;
+            sum+=r;
+            n/=10;
+        }
+        System.out.println("sum="+sum);
+     
+ sc.close();   
+}
+}
+
+
+/*
+         * Conversion of min to years
+         * 
+         */
+        double minutesInAnHour = 60;
+        double hoursInADay = 24;
+        double daysInAYear = 365;
+
+        // Input from the user
+        System.out.println("Enter the minutes: ");
+        double minutes = sc.nextDouble();
+
+        // Conversion calculations
+        double hours = minutes / minutesInAnHour;
+        double days = hours / hoursInADay;
+        double years = days / daysInAYear;
+
+        // Output the result
+        System.out.println("The equivalent time in years is: " + years);
+
+
+
+
+// import java.util.Scanner;
+
+// public class min {
+//     public static void main(String arg[])
+//     {
+//         System.out.println("Enter minutes: ");
+//         Scanner input = new Scanner(System.in);
+//         double min=input.nextDouble();
+
+//     }
+//     public static void minToYear(double min)
+//     {
+//         double days = min/60/24
+//     }
+// }
+import java.util.Scanner;
+
+public class MinutesToYearsDays {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+        System.out.print("Enter the number of minutes: ");
+        long minutes = input.nextLong();
+    
+        final int min_day = 60 * 24;
+        final int min_yr = min_day * 365;
+
+        long years = minutes / min_yr;
+        
+       
+        long remainingMinutes = minutes % min_yr;
+       
+        long days = remainingMinutes / min_day;
+      
+        System.out.println(minutes + " minutes is approximately " + years + " years and " + days + " days.");
+        
+        input.close();
+    }
+}
+
+
+
+import java.util.Scanner;
+
+public class isPerfectCube {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Please Enter a number: ");
+        double num = input.nextDouble();
+        double a = Math.cbrt(num); // 
+        if (a == Math.floor(a)) {
+            System.out.println("Here number is a Perfect Cube");
+        } else {
+            System.out.println("Here number is not a Perfect Cube");
+        }
+    }
+}
+
+import java.util.Scanner;
+public class PerfectSquareChecker {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter the number: ");
+        int num = sc.nextInt();
+
+    
+
+        if (isPerfectSquare(num)) {
+            System.out.println(num + " is a perfect square.");
+        } else {
+            System.out.println(num + " is not a perfect square.");
+        }
+    }
+    public static boolean isPerfectSquare(int n) {
+        if (n < 0) {
+            return false;  
+        }
+        int i = 0;
+        while (i * i < n) {
+            i++;
+        }  
+        return i * i == n;
+    }
+}
+
+
+
+import java.util.Scanner;
+
+public class Square {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter a number: ");
+        double num= input.nextDouble();
+        double a= Math.sqrt(num);
+        if(a==Math.floor(a)){
+            System.out.println("The number is Perfect Square");
+        }
+        else{
+            System.out.println("The number is not Perfect Square");
+        }
+    }
+
+}
+
+
+import java.util.Scanner;
+
+public class expected_out {
+    public static void main(String args[]) {
+        Scanner myObj = new Scanner(System.in);
+
+        System.out.print("Enter the number: ");
+        int num = myObj.nextInt();
+
+        double sq_root = Math.sqrt(num);
+
+        if (sq_root - Math.floor(sq_root) == 0) {
+            System.out.println("It is perfect Square");
+        }
+        else {
+            System.out.println("It is not perfect Square");
+        }
+
+    }
+}
+// Perfect square checker
+
+public class note {
+    public static void main(String args[]) {
+
+        // 1 birth every 7 sec and 1 death every 13 sec and 1 immigrant every 45 sec.
+        // Display popupation for next 5 yrs. Current population is 312032486 (assume 1
+        // yr = 365 days)
+        double births = changeToyears(7), deaths =changeToyears(13), immigrants = changeToyears(45);
+        double initialPop = 312032486;
+        for (int i = 1; i <= 5; i++)
+        {
+            System.out.print("Total Population for the year " + i + ": ");
+            initialPop += births + immigrants - deaths;
+            System.out.printf("%1.0f", initialPop);
+            System.out.println();
+        }  
+    }
+
+    public static double changeToyears(double changeInSec)
+    {
+        double yrs = 3600 * 365 * 24;
+        double changeInYears = yrs / changeInSec;
+        return changeInYears; 
+    }
+}
+
+
+using System;
+namespace std;
+
+public class SquareCubeTable
+{
+    public static void Main(string[] args)
+    {
+        // Print table header
+        Console.WriteLine("Number\tSquare\tCube");
+
+        // Loop through numbers from 0 to 4
+        for (int i = 0; i <= 4; i++)
+        {
+            int square = i * i;
+            int cube = i * i * i;
+            
+            // Print the number, its square, and its cube
+            Console.WriteLine($"{i}\t{square}\t{cube}");
+        }
+    }
+}
+   cs
+
+
+#include<iostream>
+#include"cmath"
+using namespace std;
+
+int main()
+{
+    for(int i = 1; i <= 4; i++)
+    {
+        for(int j = 1; j <= 4; j++)
+        {
+            cout << pow(i, j) << " " ;
+        }
+        cout << endl;
+    }
+    return 0;
+}
+
+for c++
+
+
+public class sqcube {
+    public static void main(String[] args) {
+        int n = 5;
+
+        for (int i = 1; i <= n; i++) {
+            System.out.println(i + " | " + i*i + " | " + i*i*i);
+        }
+    }
+}
+
+
+public class sqcube {
+        public static void main(String[] args) {
+            int n = 5;
+
+            System.out.println("a | a^2 | a^3");
+            System.out.println("-------------");
+
+            for (int i = 1; i <= n; i++) {
+                System.out.println(i + " | " + i*i + " | " + i*i*i);
+            }
+        }
+    }
+
+
+public class Basics {
+
+    public static void main(String args[]) {
+        System.out.println("Hello World");
+        System.out.println("Presented to you by: " + args[0]);
+    }
+}
+
+
+public class Basics {
+
+    public static void main(String args[]) {
+        System.out.println("Hello World");
+        System.out.println("Presented to you by: " + args[0] + " " + args[1]);
+    }
+}
+
+javac Basics.java (to compile)
+
+java Basics 'your name' (to run)
+
+
+
+
