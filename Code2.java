@@ -1,3 +1,4 @@
+import java.util.*;
 public class Code2{
        public static void main(String[] args){
      
@@ -10,5 +11,5 @@ public class Code2{
 
        System.out.print("Years");
        double y = sc.nextInt();// years
-
+       }}
        
