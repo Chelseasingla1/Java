@@ -1,0 +1,50 @@
+class Solution {
+    public boolean isIsomorphic(String s, String t) {
+
+        if(s.length() != t.length()){
+            return false;
+        }
+        HashMap<Character, Character> smap = new HashMap<>();
+        HashMap<Character, Character> tmap = new HashMap<>();
+
+// for( char c : s.toCharArray()){
+//     smap.put(c, smap.getOrDefault(c, 0) + 1);
+// }
+
+// for( char c : t.toCharArray()){
+//     tmap.put(c, tmap.getOrDefault(c, 0) + 1);
+// }
+
+        // for(int i =0; i < s.length(); i++){
+        //     for(int j = 0; j< t.length(); j++){
+        //         if(s.charAt(i) != smap.get(i) ){
+
+        //         }
+        //     }
+        // }
+
+        for(int i = 0; i < s.length(); i++){
+            char charS = s.charAt(i);
+            char charT = t.charAt(i);
+
+            if(smap.containsKey(charS)){
+                if(smap.get(charS) != charT){
+                    return false;
+                }
+            } else {
+               
+                smap.put(charS, charT);
+            }
+
+            if(tmap.containsKey(charT)){
+                if(tmap.get(charT) != charS){
+                    return false;
+                }
+            }
+            else {
+                tmap.put(charT, charS);
+            }
+        }
+        return true;
+    }
+}
