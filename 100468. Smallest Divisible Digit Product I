@@ -1,0 +1,33 @@
+class Solution {
+    public int smallestNumber(int n, int t) {
+       // int onesPlace = n%10;
+       // int tensPlace = (n/10)*10;
+        // for(int i =0 ; i< n; i++){
+        //     // if(((i%10)*((i/10)*10))%t == 0){
+        //     //     return i;
+        //     // }
+        //     if(productOfDigits(i) % t == 0){
+        //         return i;
+        //     }
+        // }
+        // return -1;
+        
+        while(true){
+            if(productOfDigits(n)%t==0){
+                return n;
+            }
+            n++;
+        }
+    }
+    
+    private int productOfDigits(int num){
+        int product = 1;
+        while(num > 0){
+            int digit = num % 10;
+            product *= digit;
+            num /= 10;
+        }
+        return product;
+    }
+    
+}
