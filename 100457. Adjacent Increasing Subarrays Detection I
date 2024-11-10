@@ -1,0 +1,25 @@
+class Solution {
+    public boolean hasIncreasingSubarrays(List<Integer> nums, int k) {
+    
+        
+        for(int a =0; a<= nums.size() -2 * k  ; a++){
+            
+            if(isStrictlyIncreasing(nums, a, k)){
+                int b = a + k;
+                if(isStrictlyIncreasing(nums, b, k)){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    
+    private boolean isStrictlyIncreasing(List<Integer> nums, int start, int k){
+        for(int i = start; i< start + k -1; i++){
+            if(nums.get(i) >= nums.get(i+1)){
+                return false;
+            }
+        }
+        return true;
+    }
+}
